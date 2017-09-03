@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using System;
+using System.Data.Entity;
 
 namespace prueba_grupo.Models
 {
@@ -20,6 +22,9 @@ namespace prueba_grupo.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        [ThreadStatic]
+        public static ApplicationDbContext applicationDbContext;
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -29,5 +34,9 @@ namespace prueba_grupo.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Perfil> Perfiles { get; set; }
+        public DbSet<Campo> Campos { get; set; }
+        public DbSet<Tarea> Tareas { get; set; }
     }
 }

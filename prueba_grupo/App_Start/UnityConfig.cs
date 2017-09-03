@@ -6,6 +6,8 @@ using System.Web.Http;
 using Unity.WebApi;
 using System;
 using prueba_grupo.Exceptions;
+using prueba_grupo.Services;
+using prueba_grupo.Repositories;
 
 namespace prueba_grupo
 {
@@ -16,15 +18,15 @@ namespace prueba_grupo
             var container = new UnityContainer();
 
             container.AddNewExtension<Interception>();
-            //TODO
-            //container.RegisterType<IPersonaService, PersonaService>(new Interceptor<InterfaceInterceptor>(), new InterceptionBehavior<DBInterceptor>());
-            //container.RegisterType<IPersonaRepository, PersonaRepository>();
 
-            //container.RegisterType<ICuentaBancariaService, CuentaBancariaService>(new Interceptor<InterfaceInterceptor>(), new InterceptionBehavior<DBInterceptor>());
-            //container.RegisterType<ICuentaBancariaRepository, CuentaBancariaRepository>();
+            container.RegisterType<ICampoService, CampoService>(new Interceptor<InterfaceInterceptor>(), new InterceptionBehavior<DBInterceptor>());
+            container.RegisterType<ICampoRepository, CampoRepository>();
 
-            //container.RegisterType<IDomicilioService, DomicilioService>(new Interceptor<InterfaceInterceptor>(), new InterceptionBehavior<DBInterceptor>());
-            //container.RegisterType<IDomicilioRepository, DomicilioRepository>();
+            container.RegisterType<IPerfilService, PerfilService>(new Interceptor<InterfaceInterceptor>(), new InterceptionBehavior<DBInterceptor>());
+            container.RegisterType<IPerfilRepository, PerfilRepository>();
+
+            container.RegisterType<ITareaService, TareaService>(new Interceptor<InterfaceInterceptor>(), new InterceptionBehavior<DBInterceptor>());
+            container.RegisterType<ITareaRepository, TareaRepository>();
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }
