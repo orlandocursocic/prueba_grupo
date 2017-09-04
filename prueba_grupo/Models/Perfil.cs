@@ -14,7 +14,8 @@ namespace prueba_grupo.Models
         public string Descripcion { get; set; }
         public string Departamento { get; set; }
         public int EdadMedia { get; set; }
+        /*
         public bool Administrador { get; set; }
-
+        */
     }
 }
