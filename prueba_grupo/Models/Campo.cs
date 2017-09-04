@@ -12,10 +12,15 @@ namespace prueba_grupo.Models
         public long Id { get; set; }
         public string Nombre { get; set; }
         public string Tipo { get; set; }
+        // TODO
+        // Pendiente de cambio para soportar los siguientes
+        // campos con valores nulos.
+        /*
         public double? MaxValue { get; set; }
         public double? MinValue { get; set; }
         public int? MaxLength { get; set; }
         public int? MinLength { get; set; }
+        */
         string TareaAsociada { get; set; }
     }
 }
