@@ -102,11 +102,6 @@ namespace prueba_grupo
             {
 
             }
-
-            IEnumerable<Type> IInterceptionBehavior.GetRequiredInterfaces()
-            {
-                throw new NotImplementedException();
-            }
         }
     }
 }

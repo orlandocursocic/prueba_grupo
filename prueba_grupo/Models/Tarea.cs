@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace prueba_grupo.Models
 {
+    [Table("Tareas")]
     public class Tarea
     {
         public long Id { get; set; }
